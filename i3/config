@@ -16,6 +16,9 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# start network manager
+exec_always --no-startup-id nm-applet
+
 # start ulaucher
 exec_always ulauncher
 
@@ -25,11 +28,14 @@ exec_always nitrogen --restore
 # start compton
 exec_always compton
 
+# bind key for pomatez
+bindsym $mod+Shift+p exec --no-startup-id pomatez
+
 # start xdm on login
 exec --no-startup-id xdman
 
 # start polybar
-exec_always bash ~/.config/polybar/launch.sh --forest
+exec_always bash ~/.config/polybar/launch.sh --material
 
 # set mouse to natural scroll
 exec_always xinput set-prop 12 --type=int --format=8 284 1

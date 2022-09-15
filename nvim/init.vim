@@ -16,6 +16,7 @@ set mouse=a
 set relativenumber
 set clipboard=unnamed
 set termguicolors
+set scrolloff=20
 
 """ key map setting
 map S : source ~/.config/nvim/init.vim <CR>
@@ -23,7 +24,6 @@ map T : term <CR>
 " map T: Telescope finde_files <CR>
 map B : !python3 /mnt/D/Project/Pybuild/pybuild.py -f % <CR>
 map E : NERDTree <CR>
-map L : !clear <CR>
 map & : mksession! ~/.mysession.vim <CR>
 map ^ : source ~/.mysession.vim <CR>
 map F : Files <CR>
@@ -32,8 +32,9 @@ map F : Files <CR>
 call plug#begin('~/.nvim/plugin')
 
 Plug 'vim-python/python-syntax'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/plenary.nvim'
@@ -58,11 +59,23 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
+"" copilote nvim
+Plug 'https://github.com/github/copilot.vim'
+
+"" git grap
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
+
 call plug#end()
+
+" set compteteopt=preview
+nmap <leader>yd <plug>(YCMHover)
+nnoremap <leader>yD :YcmCompleter GetDoc<CR>
+let g:ycm_auto_hover = '' " disable auto popups
 
 let g:python_highlight_all=1
 " colorscheme setting
-set background=light
+set background=dark
 set t_Co=256
 set cursorline
 colorscheme gruvbox

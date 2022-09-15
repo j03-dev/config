@@ -1,3 +1,5 @@
+thefuck --alias | source
+
 if status is-interactive
 and not set -q TMUX
     exec tmux
@@ -7,6 +9,7 @@ end
 fish_vi_key_bindings
 
 export PATH="$PATH:/home/j03/.cargo/bin/"
+export PATH="$PATH:/opt/bin/Typora-linux-x64/"
 
 
 #configure my promt fish
