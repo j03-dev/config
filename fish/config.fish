@@ -1,4 +1,4 @@
-thefuck --alias | source
+# thefuck --alias | source
 
 if status is-interactive
 and not set -q TMUX
@@ -10,6 +10,14 @@ fish_vi_key_bindings
 
 export PATH="$PATH:/home/j03/.cargo/bin/"
 export PATH="$PATH:/opt/bin/Typora-linux-x64/"
+
+
+## export flutter
+# export PATH="$PATH:/home/j03/Android/"
+export ANDROID_HOME=/home/j03/Android/Sdk
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
+export PATH="$PATH:/home/j03/Flutter/flutter/bin/"
+
 
 
 #configure my promt fish
