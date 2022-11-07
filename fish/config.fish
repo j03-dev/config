@@ -10,15 +10,20 @@ fish_vi_key_bindings
 
 export PATH="$PATH:/home/j03/.cargo/bin/"
 export PATH="$PATH:/opt/bin/Typora-linux-x64/"
-
+export PATH="$PATH:/mnt/D/Tools/LinuxApp/bin"
 
 ## export flutter
-# export PATH="$PATH:/home/j03/Android/"
 export ANDROID_HOME=/home/j03/Android/Sdk
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
 export PATH="$PATH:/home/j03/Flutter/flutter/bin/"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
 
+function nvm
+    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+end
 
+# color output
+set -U grcplugin_ls --color -l
+set -U grc_plugin_execs gcc g++ make
 
 #configure my promt fish
 #### Enable the time to be displayed.
@@ -40,14 +45,14 @@ set -g theme_display_jobs no
 set -g theme_display_jobs_always yes
 
 #### Hide the current directory read/write indicator.
-set -g theme_display_rw no
+set -g theme_display_rw yes
 
 #### Don't display the VirtualEnv prompt.
 set -g theme_display_virtualenv yes
 
 #### Display the battery
 set -g theme_display_batt yes
-set -g theme_display_batt_icon no
+set -g theme_display_batt_icon yes
 
 
 set theme_primary                                   1eb980
@@ -78,3 +83,9 @@ set -g __fish_git_prompt_color_branch               $theme_secondary
 
 set -gx fish_prompt_pwd_dir_length                  1
 set -g theme_display_jobs_always                    yes
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval /home/j03/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
