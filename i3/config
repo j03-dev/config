@@ -41,7 +41,8 @@ bindsym Print exec --no-startup-id flameshot gui
 exec --no-startup-id xdman
 
 # start polybar
-exec_always bash ~/.config/polybar/launch.sh --hack
+exec_always bash ~/.config/polybar/launch.sh --panels
+#exec_always bash ~/.config/polybar/material/scripts/random.sh
 
 # set mouse to natural scroll
 exec_always xinput set-prop 12 --type=int --format=8 286 1
@@ -171,8 +172,8 @@ bindsym $mod+r mode "resize"
 
 # add gaps on all window’s
 #for_window [class="*"] floating enable
-gaps inner 10
-gaps outer 10
+gaps inner 5
+gaps outer 5
 
 # COLORS
 set $bg-color 		 #000000

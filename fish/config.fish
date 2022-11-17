@@ -51,8 +51,8 @@ set -g theme_display_rw yes
 set -g theme_display_virtualenv yes
 
 #### Display the battery
-set -g theme_display_batt yes
-set -g theme_display_batt_icon yes
+set -g theme_display_batt no
+set -g theme_display_batt_icon no
 
 
 set theme_primary                                   1eb980
