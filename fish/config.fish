@@ -17,6 +17,10 @@ export ANDROID_HOME=/home/j03/Android/Sdk
 export PATH="$PATH:/home/j03/Flutter/flutter/bin/"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
 
+# export command
+export PATH="$PATH:/mnt/D/Project/pybuild/"
+export PATH="$PATH:/mnt/D/Project/convert_image_to_pdf/"
+
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end

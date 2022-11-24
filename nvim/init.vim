@@ -26,7 +26,7 @@ map B : !python3 /mnt/D/Project/pybuild/pybuild.py -f % <CR>
 map E : NERDTree <CR>
 map & : mksession! ~/.mysession.vim <CR>
 map ^ : source ~/.mysession.vim <CR>
-
+nnoremap , :noh <return><esc>
 
 call plug#begin('~/.nvim/plugin')
 
@@ -69,10 +69,7 @@ Plug 'rbong/vim-flog'
 
 call plug#end()
 
-" set compteteopt=preview
-nmap <leader>yd <plug>(YCMHover)
-nnoremap <leader>yD :YcmCompleter GetDoc<CR>
-let g:ycm_auto_hover = '' " disable auto popups
+let g:loaded_node_provider = 0
 
 autocmd VimEnter * TSEnable highlight
 "let g:python_highlight_all=1
@@ -80,7 +77,7 @@ autocmd VimEnter * TSEnable highlight
 set background=dark
 set t_Co=256
 set cursorline
-colorscheme tokyonight
+colorscheme torte
 let g:airline_theme='solarized'
 filetype plugin on
 
