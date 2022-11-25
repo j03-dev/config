@@ -15,8 +15,8 @@ set incsearch
 set mouse=a
 set relativenumber
 set clipboard=unnamed
-set termguicolors
-set scrolloff=20
+" set termguicolors
+set scrolloff=10
 
 """ key map setting
 map S : source ~/.config/nvim/init.vim <CR>
@@ -27,11 +27,10 @@ map E : NERDTree <CR>
 map & : mksession! ~/.mysession.vim <CR>
 map ^ : source ~/.mysession.vim <CR>
 nnoremap , :noh <return><esc>
+nnoremap / :Telescope current_buffer_fuzzy_find <CR>
 
 call plug#begin('~/.nvim/plugin')
 
-"Plug 'vim-python/python-syntax'
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -52,7 +51,6 @@ Plug 'https://github.com/NLKNguyen/papercolor-theme'
 Plug 'dracula/vim', { 'name': 'dracula' }
 
 Plug 'vim-utils/vim-man'
-" Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'https://github.com/Townk/vim-autoclose.git'
 Plug 'vim-airline/vim-airline'
@@ -77,7 +75,7 @@ autocmd VimEnter * TSEnable highlight
 set background=dark
 set t_Co=256
 set cursorline
-colorscheme torte
+colorscheme desert
 let g:airline_theme='solarized'
 filetype plugin on
 
