@@ -21,6 +21,13 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
 export PATH="$PATH:/mnt/D/Project/pybuild/"
 export PATH="$PATH:/mnt/D/Project/convert_image_to_pdf/"
 
+# node
+export PATH="$PATH:/home/j03/.nvm/versions/node/v19.3.0/bin"
+
+# anaconda
+export PATH="$PATH:/home/j03/anaconda3/bin"
+
+
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
