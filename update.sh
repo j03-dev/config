@@ -1,9 +1,7 @@
-copy_dot_file(){
-    cp ~/.tmux.conf .
-    cp -r  ~/.config/i3 .
-    cp -r  ~/.config/nvim .
-    cp -r  ~/.config/fish .
-    cp -r  ~/.config/polybar .
-}
+#!/bin/bash
 
-copy_dot_file
+config=(i3/ nvim/ fish/ polybar/)
+
+for conf in ${config[@]}; do
+    cp -r ~/.config/$conf .
+done
