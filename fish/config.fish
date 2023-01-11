@@ -12,6 +12,10 @@ export PATH="$PATH:/home/j03/.cargo/bin/"
 export PATH="$PATH:/opt/bin/Typora-linux-x64/"
 export PATH="$PATH:/mnt/D/Tools/LinuxApp/bin"
 
+# export java
+set JAVA_HOME "/opt/jdk-19.0.1"
+export PATH="$PATH:$JAVA_HOME/bin"
+
 ## export flutter
 export ANDROID_HOME=/home/j03/Android/Sdk
 export PATH="$PATH:/home/j03/Flutter/flutter/bin/"
@@ -26,7 +30,6 @@ export PATH="$PATH:/home/j03/.nvm/versions/node/v19.3.0/bin"
 
 # anaconda
 export PATH="$PATH:/home/j03/anaconda3/bin"
-
 
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv

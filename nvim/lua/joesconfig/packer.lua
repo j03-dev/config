@@ -17,12 +17,26 @@ return require('packer').startup(function(use)
       'neoclide/coc.nvim', tag = 'release'
   }
 
+  use ({'https://github.com/junegunn/fzf', {run = ' -> fzf#install()'}})
+  use 'junegunn/fzf.vim'
+
+  use 'preservim/nerdtree'
+  use 'ryanoasis/vim-devicons'
+  use 'Xuyuanp/nerdtree-git-plugin'
+
+  -- colorscheme
   use 'morhetz/gruvbox'
   use 'https://github.com/Mofiqul/vscode.nvim'
   use 'https://github.com/arzg/vim-colors-xcode'
   use 'folke/tokyonight.nvim'
   use 'https://github.com/NLKNguyen/papercolor-theme'
   use 'dracula/vim'
+  use 'EdenEast/nightfox.nvim' -- Vim-Plug
 
+  -- status bar
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
 end)

@@ -21,8 +21,8 @@ bindsym $mod+Shift+q kill
 exec_always --no-startup-id nm-applet
 
 # start ulaucher
-# exec_always ulauncher
-bindsym $mod+d exec --no-startup-id ~/.config/polybar/blocks/scripts/launcher.sh
+exec_always ulauncher
+# bindsym $mod+d exec --no-startup-id ~/.config/polybar/blocks/scripts/launcher.sh
 
 # restor wallpaper
 exec_always nitrogen --restore
@@ -44,15 +44,19 @@ exec --no-startup-id xdman
 
 # start polybar
 exec_always bash ~/.config/polybar/launch.sh --hack
-# exec_always bash ~/.config/polybar/material/scripts/random.sh
+exec_always bash ~/.config/polybar/material/scripts/random.sh
 
 # set mouse to natural scroll
-exec_always xinput set-prop 12 --type=int --format=8 286 1
+# exec_always xinput set-prop 11 --type=int --format=8 333 1
+exec_always /mnt/d/script/touchpad_natural_scroll.py 
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
@@ -174,8 +178,8 @@ bindsym $mod+r mode "resize"
 
 # add gaps on all window’s
 # for_window [class="*"] floating enable
-gaps inner 5
-gaps outer 0
+# gaps inner 5
+# gaps outer 0
 
 # COLORS
 set $bg-color 		 #000000
