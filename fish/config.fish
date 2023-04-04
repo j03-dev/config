@@ -1,5 +1,4 @@
 # thefuck --alias | source
-
 if status is-interactive
 and not set -q TMUX
     exec tmux
@@ -9,21 +8,12 @@ end
 fish_vi_key_bindings
 
 export PATH="$PATH:/home/j03/.cargo/bin/"
-export PATH="$PATH:/opt/bin/Typora-linux-x64/"
-export PATH="$PATH:/mnt/D/Tools/LinuxApp/bin"
 
-# export java
-set JAVA_HOME "/opt/jdk-19.0.1"
-export PATH="$PATH:$JAVA_HOME/bin"
-
-## export flutter
-export ANDROID_HOME=/home/j03/Android/Sdk
-export PATH="$PATH:/home/j03/Flutter/flutter/bin/"
+# export flutter
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH="$PATH:$HOME/Flutter/flutter/bin/"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
-
-# export command
-export PATH="$PATH:/mnt/D/Project/pybuild/"
-export PATH="$PATH:/mnt/D/Project/convert_image_to_pdf/"
+export PATH="$PATH:$HOME/.gradle/wrapper/dists/gradle-7.4-all/aadb4xli5jkdsnukm30eibyiu/gradle-7.4/bin"
 
 # node
 export PATH="$PATH:/home/j03/.nvm/versions/node/v19.3.0/bin"
@@ -34,6 +24,7 @@ export PATH="$PATH:/home/j03/anaconda3/bin"
 function nvm
     bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
+
 
 # color output
 set -U grcplugin_ls --color -l
@@ -97,9 +88,3 @@ set -g __fish_git_prompt_color_branch               $theme_secondary
 
 set -gx fish_prompt_pwd_dir_length                  1
 set -g theme_display_jobs_always                    yes
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# eval /home/j03/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
-

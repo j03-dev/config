@@ -2,6 +2,11 @@
 # VERSION: 3.0
 SETUVAR THEME_EDEN_PROMPT_CHAR:\u00bb
 SETUVAR __fish_initialized:3100
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_nickeb96_2F_puffer_2D_fish_files:\x7e/\x2econfig/fish/functions/_puffer_fish_expand_bang\x2efish\x1e\x7e/\x2econfig/fish/functions/_puffer_fish_expand_dots\x2efish\x1e\x7e/\x2econfig/fish/functions/_puffer_fish_expand_lastarg\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/puffer_fish_key_bindings\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1enickeb96/puffer\x2dfish
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR fd2_log_level:2
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:5f87ff
@@ -32,6 +37,8 @@ SETUVAR fish_pager_color_description:555\x1eyellow
 SETUVAR fish_pager_color_prefix:cyan
 SETUVAR fish_pager_color_progress:cyan
 SETUVAR grc_plugin_execs:gcc\x1eg\x2b\x2b\x1emake
+SETUVAR grc_plugin_extras:cat
+SETUVAR grcplugin_cat:\x2d\x2dcolor
 SETUVAR grcplugin_ls:\x2d\x2dcolor\x1e\x2dl
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false

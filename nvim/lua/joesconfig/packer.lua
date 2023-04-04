@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use 'preservim/nerdtree'
   use 'ryanoasis/vim-devicons'
   use 'Xuyuanp/nerdtree-git-plugin'
+  use 'tpope/vim-fugitive'
 
   -- colorscheme
   use 'morhetz/gruvbox'
@@ -32,6 +33,8 @@ return require('packer').startup(function(use)
   use 'https://github.com/NLKNguyen/papercolor-theme'
   use 'dracula/vim'
   use 'EdenEast/nightfox.nvim' -- Vim-Plug
+  use 'https://github.com/fxn/vim-monochrome'
+  use 'doums/darcula'
 
   -- status bar
   use {

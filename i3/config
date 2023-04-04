@@ -1,11 +1,11 @@
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 0
 
 floating_modifier $mod
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec kitty
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -17,12 +17,14 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+Shift+x exec i3lock --image=/home/j03/Pictures/lock_screen.png --raw=1920x1080:rgb -e
+
 # start network manager
 exec_always --no-startup-id nm-applet
 
 # start ulaucher
-exec_always ulauncher
-# bindsym $mod+d exec --no-startup-id ~/.config/polybar/blocks/scripts/launcher.sh
+# exec_always ulauncher
+bindsym $mod+d exec --no-startup-id ~/.config/polybar/shapes/scripts/launcher.sh
 
 # restor wallpaper
 exec_always nitrogen --restore
@@ -43,12 +45,12 @@ bindsym Print exec --no-startup-id flameshot gui
 exec --no-startup-id xdman
 
 # start polybar
-exec_always bash ~/.config/polybar/launch.sh --hack
-exec_always bash ~/.config/polybar/material/scripts/random.sh
+exec_always bash ~/.config/polybar/launch.sh --shapes
+# exec_always bash ~/.config/polybar/material/scripts/random.sh
 
 # set mouse to natural scroll
 # exec_always xinput set-prop 11 --type=int --format=8 333 1
-exec_always /mnt/d/script/touchpad_natural_scroll.py 
+exec_always /mnt/d/Project/script/mouse_config.py
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -177,9 +179,17 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 # add gaps on all window’s
-# for_window [class="*"] floating enable
-# gaps inner 5
-# gaps outer 0
+# for_window [class="Gnome-terminal"] floating enable
+# for_window [class="Nautilus"] floating enable
+for_window [class="Harmonoid"] floating enable
+# for_window [class="kitty"] floating enable
+# for_window [class=".*"] border pixel 2
+gaps inner 7
+gaps horizontal 5
+gaps outer 5
+smart_borders on
+smart_borders no_gaps
+# border_radius 2
 
 # COLORS
 set $bg-color 		 #000000
