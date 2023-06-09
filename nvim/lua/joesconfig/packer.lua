@@ -13,9 +13,9 @@ return require('packer').startup(function(use)
 
   use ({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
 
-  use {
-      'neoclide/coc.nvim', tag = 'release'
-  }
+  -- use {
+  --     'neoclide/coc.nvim', tag = 'release'
+  -- }
 
   use ({'https://github.com/junegunn/fzf', {run = ' -> fzf#install()'}})
   use 'junegunn/fzf.vim'
