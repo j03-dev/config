@@ -1,8 +1,8 @@
 # thefuck --alias | source
-if status is-interactive
-and not set -q TMUX
-    exec tmux
-end
+# if status is-interactive
+# and not set -q TMUX
+#     exec tmux
+# end
 
 # enable vim mode
 fish_vi_key_bindings
@@ -11,80 +11,81 @@ export PATH="$PATH:/home/j03/.cargo/bin/"
 
 # export flutter
 export ANDROID_HOME=$HOME/Android/Sdk
-export PATH="$PATH:$HOME/Flutter/flutter/bin/"
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
-export PATH="$PATH:$HOME/.gradle/wrapper/dists/gradle-7.4-all/aadb4xli5jkdsnukm30eibyiu/gradle-7.4/bin"
+export PATH="$PATH:$HOME/flutter_linux/flutter/bin/"
+# export PATH="$PATH:$ANDROID_HOME/cmdline-tools/bin/"
+# export PATH="$PATH:$HOME/.gradle/wrapper/dists/gradle-7.4-all/aadb4xli5jkdsnukm30eibyiu/gradle-7.4/bin"
 
-# node
-export PATH="$PATH:/home/j03/.nvm/versions/node/v19.3.0/bin"
+alias project "cd /mnt/d/Project"
+alias d "cd /mnt/d"
+export EDITOR=/usr/bin/hx
 
-# anaconda
-export PATH="$PATH:/home/j03/anaconda3/bin"
-
-function nvm
-    bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-end
+export JAVA_HOME="/home/j03/jdk-20.0.1"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 
-# color output
-set -U grcplugin_ls --color -l
-set -U grc_plugin_execs gcc g++ make
+# Add to shell environment
+# export http_proxy=http://26.26.26.1:8080
+# export https_proxy=https://26.26.26.1:8080
 
-#configure my promt fish
-#### Enable the time to be displayed.
-set -g theme_display_time yes
+# # color output
+# set -U grcplugin_ls --color -l
+# set -U grc_plugin_execs gcc g++ make
 
-#### Disable playing the user's current group.
-set -g theme_display_group yes
+# #configure my promt fish
+# #### Enable the time to be displayed.
+# set -g theme_display_time yes
 
-### Display the system hostname.
-set -g theme_display_hostname yes
+# #### Disable playing the user's current group.
+# set -g theme_display_group yes
 
-#### Disable Git-awareness.
-set -g theme_display_git yes
+# ### Display the system hostname.
+# set -g theme_display_hostname yes
 
-#### Don't disable jobs indicator.
-set -g theme_display_jobs no
+# #### Disable Git-awareness.
+# set -g theme_display_git yes
 
-#### Always display the jobs indicator, even if there are no jobs.
-set -g theme_display_jobs_always yes
+# #### Don't disable jobs indicator.
+# set -g theme_display_jobs no
 
-#### Hide the current directory read/write indicator.
-set -g theme_display_rw yes
+# #### Always display the jobs indicator, even if there are no jobs.
+# set -g theme_display_jobs_always yes
 
-#### Don't display the VirtualEnv prompt.
-set -g theme_display_virtualenv yes
+# #### Hide the current directory read/write indicator.
+# set -g theme_display_rw yes
 
-#### Display the battery
-set -g theme_display_batt no
-set -g theme_display_batt_icon no
+# #### Don't display the VirtualEnv prompt.
+# set -g theme_display_virtualenv yes
+
+# #### Display the battery
+# set -g theme_display_batt no
+# set -g theme_display_batt_icon no
 
 
-set theme_primary                                   1eb980
-set theme_secondary                                 ffcf44
-set theme_primary_variant                           045d56
-set theme_secondary_variant                         ff6859
-set theme_hilight                                   b15dff
+# set theme_primary                                   1eb980
+# set theme_secondary                                 ffcf44
+# set theme_primary_variant                           045d56
+# set theme_secondary_variant                         ff6859
+# set theme_hilight                                   b15dff
 
-set -g theme_color_user                             $theme_hilight
-set -g theme_color_host                             $theme_primary_variant
-set -g theme_color_separator                        brblack
-set -g theme_color_normal                           normal
-set -g theme_color_time                             $theme_secondary_variant
-set -g theme_color_path                             $theme_primary
-set -g theme_color_prompt                           $theme_secondary_variant
-set -g theme_color_virtualenv                       $theme_secondary
-set -g theme_color_status_prefix                    $theme_hilight
-set -g theme_color_status_jobs                      $theme_primary
-set -g theme_color_status_rw                        $theme_primary
-set -g theme_display_group                          no
-set -g theme_prompt_segment_separator_color         $theme_primary
-set -g theme_prompt_userhost_separator              '.'
-set -g __fish_git_prompt_char_branch_begin          '['
-set -g __fish_git_prompt_char_branch_end            ']'
-set -g __fish_git_prompt_color_branch_begin         brblack
-set -g __fish_git_prompt_color_branch_end           brblack
-set -g __fish_git_prompt_color_branch               $theme_secondary
+# set -g theme_color_user                             $theme_hilight
+# set -g theme_color_host                             $theme_primary_variant
+# set -g theme_color_separator                        brblack
+# set -g theme_color_normal                           normal
+# set -g theme_color_time                             $theme_secondary_variant
+# set -g theme_color_path                             $theme_primary
+# set -g theme_color_prompt                           $theme_secondary_variant
+# set -g theme_color_virtualenv                       $theme_secondary
+# set -g theme_color_status_prefix                    $theme_hilight
+# set -g theme_color_status_jobs                      $theme_primary
+# set -g theme_color_status_rw                        $theme_primary
+# set -g theme_display_group                          no
+# set -g theme_prompt_segment_separator_color         $theme_primary
+# set -g theme_prompt_userhost_separator              '.'
+# set -g __fish_git_prompt_char_branch_begin          '['
+# set -g __fish_git_prompt_char_branch_end            ']'
+# set -g __fish_git_prompt_color_branch_begin         brblack
+# set -g __fish_git_prompt_color_branch_end           brblack
+# set -g __fish_git_prompt_color_branch               $theme_secondary
 
-set -gx fish_prompt_pwd_dir_length                  1
-set -g theme_display_jobs_always                    yes
+# set -gx fish_prompt_pwd_dir_length                  1
+# set -g theme_display_jobs_always                    yes
