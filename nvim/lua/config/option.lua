@@ -18,4 +18,4 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-
+vim.opt.guifont = "JetBrains Mono:h"

@@ -22,6 +22,12 @@ bindsym $mod+d exec dmenu_run
 # start network manager
 exec_always --no-startup-id nm-applet
 
+# setup keyboard
+exec_always --no-startup-id setxbmap fr
+
+# exec batman
+exec --no-startup-id /mnt/d/Project/batman/batman.sh
+
 # start ulaucher
 # exec_always ulauncher
 # bindsym $mod+d exec --no-startup-id ~/.config/polybar/shapes/scripts/launcher.sh
@@ -45,12 +51,14 @@ bindsym Print exec --no-startup-id flameshot gui
 exec --no-startup-id xdman
 
 # start polybar
-exec_always bash ~/.config/polybar/launch.sh --shapes
+exec_always bash ~/.config/polybar/launch.sh --material
 # exec_always bash ~/.config/polybar/material/scripts/random.sh
 
 # set mouse to natural scroll
 # exec_always xinput set-prop 11 --type=int --format=8 333 1
 exec_always /mnt/d/Project/script/mouse_config.py
+
+exec_always ~/Downloads/Git/bucklespring/buckle -p ~/Downloads/Git/bucklespring/wav
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -139,9 +147,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # assign
-assign [class="firefox"] → 2
-assign [class="Code"] → 1
-assign [class="jetbrains-pycharm-ce"] → 5
+# assign [class="firefox"] → 2
+# assign [class="Code"] → 1
+# assign [class="jetbrains-pycharm-ce"] → 5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -2,7 +2,7 @@ vim.opt.syntax = "on"
 vim.opt.tabstop = 4 
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.clipboard = unnamed
+vim.opt.clipboard = "unnamed"
 vim.opt.scrolloff = 10
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.mouse = "a"
@@ -18,4 +18,4 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-
+vim.opt.guifont = "JetBrains Mono"
