@@ -1,0 +1,16 @@
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "rust"
+auto-format = true
+language-servers = ["rust-analyzer", "tailwindcss-ls"]
+
+[language-server.rust-analyzer]
+config = { procMacro = { ignored = { leptos_macro = [
+  # Optional:
+  # "component",
+  "server",
+] } } }

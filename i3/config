@@ -3,62 +3,15 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 0
 
 floating_modifier $mod
-# start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
-# kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# bindsym $mod+Shift+x exec i3lock --image=/home/j03/Pictures/lock_screen.png --raw=1920x1080:rgb -e
-
-# start network manager
-exec_always --no-startup-id nm-applet
-
-# setup keyboard
-exec_always --no-startup-id setxbmap fr
-
-# exec batman
-exec --no-startup-id /mnt/d/Project/batman/batman.sh
-
-# start ulaucher
-# exec_always ulauncher
-# bindsym $mod+d exec --no-startup-id ~/.config/polybar/shapes/scripts/launcher.sh
-
-# restor wallpaper
-exec_always nitrogen --restore
-
-# start compton
-exec_always compton
-
-# start plank
-# exec_always plank
-
-# bind key for pomatez
 bindsym $mod+Shift+p exec --no-startup-id pomatez
 
-# bind screen capture
 bindsym Print exec --no-startup-id flameshot gui
-
-# start xdm on login
-exec --no-startup-id xdman
-
-# start polybar
-exec_always bash ~/.config/polybar/launch.sh --material
-# exec_always bash ~/.config/polybar/material/scripts/random.sh
-
-# set mouse to natural scroll
-# exec_always xinput set-prop 11 --type=int --format=8 333 1
-exec_always /mnt/d/Project/script/mouse_config.py
-
-exec_always ~/Downloads/Git/bucklespring/buckle -p ~/Downloads/Git/bucklespring/wav
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -68,61 +21,46 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
-# floating pop up automatically
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-# make xdman fload
-for_window [class="xdman-Main"] floating enable
+for_window [class="xdm-app"] floating enable
 
-# change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+o split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
 bindsym $mod+a focus parent
 
-# switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -134,7 +72,6 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -146,68 +83,72 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# assign
-# assign [class="firefox"] → 2
-# assign [class="Code"] → 1
-# assign [class="jetbrains-pycharm-ce"] → 5
-
-# reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+mode resize {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+bindsym $mod+r mode resize
 
-# add gaps on all window’s
-# for_window [class="Gnome-terminal"] floating enable
-# for_window [class="Nautilus"] floating enable
 for_window [class="Harmonoid"] floating enable
-# for_window [class="kitty"] floating enable
-# for_window [class=".*"] border pixel 2
+
 gaps inner 7
 gaps horizontal 5
 gaps outer 5
 smart_borders on
 smart_gaps on
 
-# COLORS
-set $bg-color 		 #000000
-set $text-color		 #ffffff
-set $inactive-bg-color	 #000000
+set $bg-color #000000
+set $text-color #ffffff
+set $inactive-bg-color #000000
 set $inactive-text-color #737373
-set $urgent-bg-color	 #ff0000
-set $urgent-text-color   #ffffff
-#          		        border          	background          text
-client.focused		    $bg-color		    $bg-color	        $text-color
-client.unfocused	    $inactive-bg-color	$inactive-bg-color  $inactive-text-color
-client.focused_inactive	$inactive-bg-color	$inactive-bg-color  $inactive-text-color
-client.urgent		    $urgent-bg-color	$urgent-bg-color    $urgent-text-color
+set $urgent-bg-color #ff0000
+set $urgent-text-color #ffffff
 
+client.focused #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background #F8F8F2
+
+bar {
+    font pango:DejaVu Sans Mono, awesome 10
+    position bottom
+    status_command i3status
+    colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
+    }
+}
+
+# Grouped exec and exec_always commands
+exec --no-startup-id ulauncher
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id setxbmap fr
+exec_always nitrogen --restore
+exec_always --no-startup-id picom -CGb
+exec --no-startup-id xdman
+exec_always /home/joe/Downloads/Git/config/mouse_config.py
