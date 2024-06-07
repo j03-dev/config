@@ -140,6 +140,7 @@ esc = ["collapse_selection", "keep_primary_selection"]
   "search_prev",
 ]
 
+
 [keys.normal.space]
 g = [
   ":new",
@@ -369,3 +370,20 @@ P = "paste_clipboard_before"
 
 # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
+# move line
+K = [
+  "yank_main_selection_to_clipboard",
+  "delete_selection",
+  "move_line_up",
+  "paste_clipboard_before",
+  "select_mode",
+]
+
+J = [
+  "yank_main_selection_to_clipboard",
+  "delete_selection",
+  "move_line_down",
+  "paste_clipboard_before",
+  "select_mode",
+]
