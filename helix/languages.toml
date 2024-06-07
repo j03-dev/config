@@ -3,14 +3,18 @@ name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
-[[language]]
-name = "rust"
-auto-format = true
-language-servers = ["rust-analyzer", "tailwindcss-ls"]
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+config = { userLanguages = { jinja = "html" } }
 
-[language-server.rust-analyzer]
-config = { procMacro = { ignored = { leptos_macro = [
-  # Optional:
-  # "component",
-  "server",
-] } } }
+[[language]]
+name = "jinja"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+auto-format = true
+
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+auto-format = true

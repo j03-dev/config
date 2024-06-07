@@ -58,3 +58,6 @@ export PATH="$TOOL:$PATH"
 export ORACLE_HOME="$TOOL/instantclient_11_2"
 export LD_LIBRARY_PATH="$ORACLE_HOME:$LD_LIBRARY_PATH"
 export PATH="$ORACLE_HOME:$PATH"
+
+export DENO_INSTALL="/home/joe/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
