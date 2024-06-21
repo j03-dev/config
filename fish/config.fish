@@ -36,6 +36,7 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # alias
 alias wrkspc="tmuxifier s workspace"
+alias zellij="zellij options --theme nord"
 
 
 # Android setup

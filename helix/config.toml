@@ -1,17 +1,35 @@
-theme = "catppuccin_mocha"
+# 🎨 Theme cnfiguration
+theme = "base16_transparent"
+
 [editor]
+# 🐭 Enable mouse support
 mouse = true
+
+# 🔄 Enable auto-formatting and auto-saving
 auto-format = true
 auto-save = true
+
+# 🌈 Enable color modes and true color
 color-modes = true
 true-color = true
+
+# 🐚 Set the shell to fish with the "-c" flag
 shell = ["fish", "-c"]
+
+# 📜 Set scrolloff to 8
 scrolloff = 8
+
+# 🔢 Set line numbers to "relative"
 line-number = "relative"
+
+# 📑 Set bufferline to "multiple"
 bufferline = "multiple"
+
+# 🗄️ Set popup border to "popup"
 popup-border = "popup"
 
 [editor.statusline]
+# 📝 Statusline configuration
 left = ["mode", "spinner", "version-control", "workspace-diagnostics"]
 center = ["file-name"]
 right = [
@@ -22,51 +40,44 @@ right = [
   "file-line-ending",
   "file-type",
 ]
+
+# 🌌 Customize mode display
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
 [editor.gutters]
+# 📊 Gutters configuration
 layout = ["spacer", "diff", "diagnostics", "line-numbers", "spacer"]
 
 [editor.cursor-shape]
+# 🔲 Customize cursor shape
 insert = "bar"
 normal = "block"
 select = "underline"
 
 [editor.file-picker]
+# 📁 File picker configuration
 hidden = false
 
 [keys.normal]
-F5 = [":run-shell-command dothelix run"]
-F9 = [":run-shell-command dothelix build"]
-
-# Personal preference
+# 🔧 Normal mode keybindings
 C-x = ":buffer-close!"
-N = "copy_selection_on_next_line"
+C-v = "copy_selection_on_next_line"
 L = "goto_next_buffer"
 H = "goto_previous_buffer"
 C-A-l = ":format"
 C-o = ":config-open"
-
-# Some nice Helix stuff
 C-h = "select_prev_sibling"
 C-j = "shrink_selection"
 C-k = "expand_selection"
 C-l = "select_next_sibling"
 
-# excute rbuild
-C-b = [":run-shell-command"]
+# 📝 Navigation
+"{" = ["goto_prev_paragraph"]
+"}" = ["goto_next_paragraph"]
 
 # Muscle memory
-"{" = ["goto_prev_paragraph", "collapse_selection"]
-"}" = ["goto_next_paragraph", "collapse_selection"]
-0 = "goto_line_start"
-"$" = "goto_line_end"
-"^" = "goto_first_nonwhitespace"
-G = "goto_file_end"
-"%" = "match_brackets"
-V = ["select_mode", "extend_to_line_bounds"]
 C = [
   "extend_to_line_end",
   "yank_main_selection_to_clipboard",
@@ -78,9 +89,10 @@ D = [
   "yank_main_selection_to_clipboard",
   "delete_selection",
 ]
-S = "surround_add" # Would be nice to be able to do something after this but it isn't chainable
+G = "goto_file_end"
+V = ["select_mode", "extend_to_line_bounds"]
 
-# Clipboards over registers ye ye
+# 📋 Clipboard and selection keybindings
 x = ["yank_main_selection_to_clipboard", "delete_selection"]
 p = ["select_mode", "paste_clipboard_after", "collapse_selection"]
 P = [
@@ -89,38 +101,26 @@ P = [
   "collapse_selection",
   "paste_clipboard_before",
 ]
-# Would be nice to add ya and yi, but the surround commands can't be chained
 Y = [
   "extend_to_line_end",
   "yank_main_selection_to_clipboard",
   "collapse_selection",
 ]
 
-# Uncanny valley stuff, this makes w and b behave as they do Vim
+# 🔀 Movement and selection keybindings
 w = ["move_next_word_start", "move_char_right", "collapse_selection"]
 W = ["move_next_long_word_start", "move_char_right", "collapse_selection"]
 e = ["move_next_word_end", "collapse_selection"]
 E = ["move_next_long_word_end", "collapse_selection"]
 b = ["move_prev_word_start", "collapse_selection"]
 B = ["move_prev_long_word_start", "collapse_selection"]
-
-# If you want to keep the selection-while-moving behaviour of Helix, this two lines will help a lot,
-# especially if you find having text remain selected while you have switched to insert or append mode
-#
-# There is no real difference if you have overridden the commands bound to 'w', 'e' and 'b' like above
-# But if you really want to get familiar with the Helix way of selecting-while-moving, comment the
-# bindings for 'w', 'e', and 'b' out and leave the bindings for 'i' and 'a' active below. A world of difference!
 i = ["insert_mode", "collapse_selection"]
 a = ["append_mode", "collapse_selection"]
-
-# Undoing the 'd' + motion commands restores the selection which is annoying
 u = ["undo", "collapse_selection"]
 C-r = ["redo", "collapse_selection"]
-
-# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
 esc = ["collapse_selection", "keep_primary_selection"]
 
-# Search for word under cursor
+# 🔍 Search keybindings
 "*" = [
   "move_char_right",
   "move_prev_word_start",
@@ -136,8 +136,12 @@ esc = ["collapse_selection", "keep_primary_selection"]
   "search_prev",
 ]
 
+[keys.normal.C-b]
+F5 = ":run-shell-command dothelix run"
+F9 = ":run-shell-command dothelix build"
 
 [keys.normal.space]
+# 📁 File and view navigation keybindings
 g = [
   ":new",
   ":insert-output lazygit",
@@ -145,17 +149,7 @@ g = [
   ":redraw",
   ":reload-all",
 ]
-e = [
-  ":new",
-  ":insert-output lf-pick",
-  "select_all",
-  "split_selection_on_newline",
-  "goto_file",
-  "goto_last_modified_file",
-  ":buffer-close!",
-  ":redraw",
-  ":reload-all",
-]
+e = ":sh ~/.config/helix/run-picker.sh"
 h = "jump_view_left"
 j = "jump_view_down"
 k = "jump_view_up"
@@ -163,6 +157,7 @@ d = "hover"
 l = "jump_view_right"
 
 [keys.normal.c]
+# 📝 Change keybindings
 e = [
   "move_next_word_end",
   "yank_main_selection_to_clipboard",
@@ -170,24 +165,19 @@ e = [
   "insert_mode",
 ]
 
-# Extend and select commands that expect a manual input can't be chained
-# I've kept d[X] commands here because it's better to at least have the stuff you want to delete
-# selected so that it's just a keystroke away to delete
 [keys.normal.d]
+# 🗑️ Delete keybindings
 d = [
   "extend_to_line_bounds",
   "yank_main_selection_to_clipboard",
   "delete_selection",
 ]
-t = ["extend_till_char"]
-s = ["surround_delete"]
-i = ["select_textobject_inner"]
+s = "surround_delete"
 e = [
   "move_next_word_end",
   "yank_main_selection_to_clipboard",
   "delete_selection",
 ]
-a = ["select_textobject_around"]
 j = [
   "select_mode",
   "extend_to_line_bounds",
@@ -249,7 +239,9 @@ g = { g = [
   "normal_mode",
 ] }
 
+
 [keys.normal.y]
+# 📋 Yank keybindings
 y = [
   "extend_to_line_bounds",
   "yank_main_selection_to_clipboard",
@@ -320,40 +312,39 @@ g = { g = [
 ] }
 
 [keys.insert]
-# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+# ✏️ Insert mode keybindings
 esc = ["collapse_selection", "normal_mode"]
 
+
 [keys.select]
-# Muscle memory
+# 🔲 Select mode keybindings
+# 🔽 Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+esc = ["collapse_selection", "normal_mode"]
+
+# 📝 Navigation and selection
 "{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
 "}" = ["extend_to_line_bounds", "goto_next_paragraph"]
-"^" = "goto_first_nonwhitespace"
 G = "goto_file_end"
-D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
-C = ["goto_line_start", "extend_to_line_bounds", "change_selection"]
-"%" = "match_brackets"
-S = "surround_add"                                                   # Basically 99% of what I use vim-surround for
-u = ["switch_to_lowercase", "collapse_selection", "normal_mode"]
-U = ["switch_to_uppercase", "collapse_selection", "normal_mode"]
-
-# Visual-mode specific muscle memory
-i = "select_textobject_inner"
-a = "select_textobject_around"
-
-# Some extra binds to allow us to insert/append in select mode because it's nice with multiple cursors
-tab = [
-  "insert_mode",
-  "collapse_selection",
-] # tab is read by most terminal editors as "C-i"
-C-a = ["append_mode", "collapse_selection"]
-
-# Make selecting lines in visual mode behave sensibly
 k = ["extend_line_up", "extend_to_line_bounds"]
 j = ["extend_line_down", "extend_to_line_bounds"]
 
-# Clipboards over registers ye ye
+# 🗑️ Deletion
+D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 d = ["yank_main_selection_to_clipboard", "delete_selection"]
 x = ["yank_main_selection_to_clipboard", "delete_selection"]
+
+# 📝 Changing and modifying selection
+C = ["goto_line_start", "extend_to_line_bounds", "change_selection"]
+c = ["yank_main_selection_to_clipboard", "delete_selection", "insert_mode"]
+S = "surround_add"
+u = ["switch_to_lowercase", "collapse_selection", "normal_mode"]
+U = ["switch_to_uppercase", "collapse_selection", "normal_mode"]
+
+# 🔲 Text object selection
+i = "select_textobject_inner"
+a = "select_textobject_around"
+
+# 📋 Yanking and pasting
 y = [
   "yank_main_selection_to_clipboard",
   "normal_mode",
@@ -371,13 +362,12 @@ p = [
   "paste_clipboard_before",
   "yank_main_selection_to_clipboard",
   "delete_selection",
-] # No life without this
+]
 P = ["extend_to_line_end", "paste_clipboard_before"]
 
-# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
-esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+# 🔄 Matching brackets and moving lines
+"%" = "match_brackets"
 
-# move line
 K = [
   "yank_main_selection_to_clipboard",
   "delete_selection",
@@ -385,7 +375,6 @@ K = [
   "paste_clipboard_before",
   "select_mode",
 ]
-
 J = [
   "yank_main_selection_to_clipboard",
   "delete_selection",
