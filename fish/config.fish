@@ -36,8 +36,6 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # alias
 alias wrkspc="tmuxifier s workspace"
-alias zellij="zellij options --theme nord"
-
 
 # Android setup
 export ANDROID_HOME="$HOME/Android"
@@ -62,3 +60,5 @@ export PATH="$ORACLE_HOME:$PATH"
 
 export DENO_INSTALL="/home/joe/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+. /home/joe/.local/share/ghjk/env.fish # ghjk-hook-default

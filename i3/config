@@ -127,22 +127,22 @@ client.placeholder #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background #F8F8F2
 
-bar {
-    font pango:DejaVu Sans Mono, awesome 10
-    position bottom
-    status_command i3status
-    colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
+# bar {
+#     font pango:DejaVu Sans Mono, awesome 10
+#     position bottom
+#     status_command i3status
+#     colors {
+#         background #282A36
+#         statusline #F8F8F2
+#         separator  #44475A
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
-}
+#         focused_workspace  #44475A #44475A #F8F8F2
+#         active_workspace   #282A36 #44475A #F8F8F2
+#         inactive_workspace #282A36 #282A36 #BFBFBF
+#         urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#         binding_mode       #FF5555 #FF5555 #F8F8F2
+#     }
+# }
 
 # Grouped exec and exec_always commands
 exec_always libinput-gestures-setup start
@@ -151,6 +151,7 @@ exec_always --no-startup-id nm-applet
 exec --no-startup-id conky
 exec --no-startup-id setxbmap fr
 exec nitrogen --restore
-exec --no-startup-id picom -CGb
+exec_always --no-startup-id picom -CGb
 exec --no-startup-id xdman
 exec /home/joe/Downloads/Git/config/mouse_config.py
+exec_always --no-startup-id ~/.config/polybar/launch.sh --panels

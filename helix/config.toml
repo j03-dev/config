@@ -1,4 +1,5 @@
-# 🎨 Theme cnfiguration
+# 🎨 Theme configuration
+# theme = "default"
 theme = "base16_transparent"
 
 [editor]
@@ -142,14 +143,9 @@ F9 = ":run-shell-command dothelix build"
 
 [keys.normal.space]
 # 📁 File and view navigation keybindings
-g = [
-  ":new",
-  ":insert-output lazygit",
-  ":buffer-close!",
-  ":redraw",
-  ":reload-all",
-]
+g = ":sh ~/.config/helix/run-lazygit.sh"
 e = ":sh ~/.config/helix/run-picker.sh"
+t = ":sh ~/.config/helix/run-terminal.sh"
 h = "jump_view_left"
 j = "jump_view_down"
 k = "jump_view_up"
