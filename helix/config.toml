@@ -1,6 +1,6 @@
 # 🎨 Theme configuration
 # theme = "default"
-theme = "base16_transparent"
+theme = "catppuccin_mocha"
 
 [editor]
 # 🐭 Enable mouse support
@@ -21,7 +21,7 @@ shell = ["fish", "-c"]
 scrolloff = 8
 
 # 🔢 Set line numbers to "relative"
-line-number = "relative"
+# line-number = "relative"
 
 # 📑 Set bufferline to "multiple"
 bufferline = "multiple"
@@ -31,16 +31,9 @@ popup-border = "popup"
 
 [editor.statusline]
 # 📝 Statusline configuration
-left = ["mode", "spinner", "version-control", "workspace-diagnostics"]
-center = ["file-name"]
-right = [
-  "diagnostics",
-  "selections",
-  "position",
-  "file-encoding",
-  "file-line-ending",
-  "file-type",
-]
+left = ["mode", "file-name", "spinner", "workspace-diagnostics"]
+center = []
+right = ["version-control", "file-type"]
 
 # 🌌 Customize mode display
 mode.normal = "NORMAL"
