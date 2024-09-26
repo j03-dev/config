@@ -19,7 +19,7 @@ fish_user_key_bindings
 # enable vim mode
 fish_vi_key_bindings
 
-export EDITOR=/usr/bin/hx
+export EDITOR=/usr/bin/vim
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

@@ -1,3 +1,7 @@
+[language-server.gpt]
+command = "helix-gpt"
+args = ["--handler", "codeium"]
+
 [[language]]
 name = "toml"
 auto-format = true
@@ -10,16 +14,17 @@ config = { userLanguages = { jinja = "html" } }
 
 [[language]]
 name = "jinja"
-language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "gpt"]
 auto-format = true
 
 [[language]]
 name = "html"
-language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+language-servers = ["vscode-html-language-server", "tailwindcss-ls", "gpt"]
 auto-format = true
 
 [[language]]
 name = "rust"
+language-servers = ["rust-analyzer", "gpt"]
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
@@ -45,13 +50,13 @@ name = "typescript"
 shebangs = ["deno"]
 roots = ["deno.json", "deno.jsonc"]
 file-types = ["ts"]
-language-servers = ["deno-lsp"]
+language-servers = ["deno-lsp", "gpt"]
 auto-format = true
 
 [[language]]
 name = "jsx"
 shebangs = ["deno"]
-roots = ["deno.json", "deno.jsonc"]
+roots = ["deno.json", "deno.jsonc", "gpt"]
 file-types = ["jsx"]
 language-servers = ["deno-lsp"]
 auto-format = true
@@ -59,7 +64,7 @@ auto-format = true
 [[language]]
 name = "tsx"
 shebangs = ["deno"]
-roots = ["deno.json", "deno.jsonc"]
+roots = ["deno.json", "deno.jsonc", "gpt"]
 file-types = ["tsx"]
 language-servers = ["deno-lsp"]
 auto-format = true
@@ -75,7 +80,7 @@ suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.l
 
 [[language]]
 name = "python"
-language-servers = ["pyright", "ruff"]
+language-servers = ["pyright", "ruff", "gpt"]
 formatter = { command = "ruff", args = ["format", "-"] }
 auto-format = true
 

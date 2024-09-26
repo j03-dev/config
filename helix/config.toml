@@ -1,10 +1,12 @@
 # 🎨 Theme configuration
-# theme = "default"
-theme = "catppuccin_mocha"
+theme = "solarized_light"
 
 [editor]
 # 🐭 Enable mouse support
 mouse = true
+
+# Enable cursor line
+cursorline = true
 
 # 🔄 Enable auto-formatting and auto-saving
 auto-format = true
@@ -20,9 +22,6 @@ shell = ["fish", "-c"]
 # 📜 Set scrolloff to 8
 scrolloff = 8
 
-# 🔢 Set line numbers to "relative"
-# line-number = "relative"
-
 # 📑 Set bufferline to "multiple"
 bufferline = "multiple"
 
@@ -32,8 +31,7 @@ popup-border = "popup"
 [editor.statusline]
 # 📝 Statusline configuration
 left = ["mode", "file-name", "spinner", "workspace-diagnostics"]
-center = []
-right = ["version-control", "file-type"]
+right = ["version-control"]
 
 # 🌌 Customize mode display
 mode.normal = "NORMAL"
