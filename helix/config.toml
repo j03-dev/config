@@ -1,12 +1,12 @@
 # 🎨 Theme configuration
-theme = "solarized_light"
+theme = "hex_lavender"
 
 [editor]
 # 🐭 Enable mouse support
 mouse = true
 
 # Enable cursor line
-cursorline = true
+# cursorline = true
 
 # 🔄 Enable auto-formatting and auto-saving
 auto-format = true
@@ -27,6 +27,19 @@ bufferline = "multiple"
 
 # 🗄️ Set popup border to "popup"
 popup-border = "popup"
+
+
+[editor.whitespace.render]
+newline = "all" # Enable rendering of newlines only
+space = "all"
+
+[editor.whitespace.characters]
+newline = "⏎" # Choose a character to represent newlines (⏎ in this case)
+space = "."
+
+[editor.indent-guides]
+render = true
+character = "⸽" # Some characters that work well: "▏", "┆", "┊", "⸽"
 
 [editor.statusline]
 # 📝 Statusline configuration

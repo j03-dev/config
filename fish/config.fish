@@ -1,11 +1,6 @@
-starship init fish | source
+# starship init fish | source
 
 export PATH="/usr/sbin:$PATH"
-
-# if status is-interactive
-# and not set -q TMUX
-#     exec tmux
-# end
 
 # Define the function to run your desired command
 function fish_user_key_bindings
@@ -36,6 +31,8 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # alias
 alias wrkspc="tmuxifier s workspace"
+alias ls="ls -l --color=always"
+
 
 # Android setup
 export ANDROID_HOME="$HOME/Android"
