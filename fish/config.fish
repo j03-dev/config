@@ -1,12 +1,6 @@
-# starship init fish | source
+starship init fish | source
 
 export PATH="/usr/sbin:$PATH"
-
-# Define the function to run your desired command
-function fish_user_key_bindings
-    # Bind Ctrl+f to the command
-    bind \cf 'hx (fzf --preview="bat {}")'
-end
 
 # Call the function to apply the key bindings
 fish_user_key_bindings

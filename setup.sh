@@ -11,6 +11,7 @@ install_binstall() {
   cargo install cargo-binstall
   cargo binstall zellij -y
   cargo binstall zoxide -y
+  cargo binstall starship -y
   cp ./zellij ~/.config/ -r
 }
 
