@@ -19,10 +19,10 @@ setup_helix() {
   cp ./helix ~/.config/ -r
   export RUSTFLAGS="-C target-feature=-crt-static"
   git clone https://github.com/helix-editor/helix
-  cd helix || exit
+  cd helix
   cargo install --path helix-term --locked
   ln -Ts $PWD/runtime ~/.config/helix/runtime
-  cd - || exit
+  cd -
 }
 
 install_yazi() {
@@ -54,7 +54,7 @@ setup_lsp() {
   git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer || exit
   cargo install cargo-xtask
   cargo xtask install --server
-  cd - || exit
+  cd -
   deno install -g tailwindcss-language-server
   deno install -g vscode-html-language-server
 }
