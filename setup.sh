@@ -17,13 +17,15 @@ install_binstall() {
 
 setup_helix() {
   echo "Setting up Helix editor..."
-  cp ./helix ~/.config/ -r
+  cp ./hx ~/.config/helix -r
   export RUSTFLAGS="-C target-feature=-crt-static"
+  mkdir Tools
+  cd Tools
   git clone https://github.com/helix-editor/helix
   cd helix
   cargo install --path helix-term --locked
   ln -Ts $PWD/runtime ~/.config/helix/runtime
-  cd -
+  cd ../..
 }
 
 install_yazi() {
@@ -51,13 +53,15 @@ install_lazygit() {
 
 setup_lsp() {
   echo "Setting up LSPs..."
+  curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python get-pip.py
   python -m pip install pyright ruff
-  git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer || exit
+  git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer
   cargo install cargo-xtask
   cargo xtask install --server
   cd -
-  deno install -g tailwindcss-language-server
-  deno install -g vscode-html-language-server
+  deno install -g npm:tailwindcss-language-server
+  deno install -g npm:vscode-langservers-extracted
 }
 
 uninstall_all() {
@@ -86,13 +90,13 @@ uninstall_all() {
 }
 
 main() {
-  install_rust
-  install_binstall
-  setup_helix
-  install_yazi
-  install_deno
-  install_go
-  install_lazygit
+  # install_rust
+  # install_binstall
+  # setup_helix
+  # install_yazi
+  # install_deno
+  # install_go
+  # install_lazygit
   setup_lsp
 }
 
