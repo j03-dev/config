@@ -90,13 +90,13 @@ uninstall_all() {
 }
 
 main() {
-  # install_rust
-  # install_binstall
-  # setup_helix
-  # install_yazi
-  # install_deno
-  # install_go
-  # install_lazygit
+  install_rust
+  install_binstall
+  setup_helix
+  install_yazi
+  install_deno
+  install_go
+  install_lazygit
   setup_lsp
 }
 
