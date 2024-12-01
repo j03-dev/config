@@ -274,12 +274,40 @@ themes {
         white "#E5E9F0"
         orange "#D08770"
     }
+    
+    gruvbox_light {
+        fg "#3c3836"
+        bg "#fbf1c7"
+        black "#fbf1c7"
+        red "#cc241d"
+        green "#98971a"
+        yellow "#d79921"
+        blue "#458588"
+        magenta "#b16286"
+        cyan "#689d6a"
+        white "#7c6f64"
+        orange "#d65d0e"    
+    }
+
+    catppuccin_mocha {
+        fg "#cdd6f4"
+        bg "#1e1e2e"
+        black "#1e1e2e"
+        red "#f38ba8"
+        green "#a6e3a1"
+        yellow "#f9e2af"
+        blue "#89b4fa"
+        magenta "#f5c2e7"
+        cyan "#94e2d5"
+        white "#cdd6f4"
+        orange "#fab387"
+    }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dracula"
+theme "gruvbox_light"
 
 // The name of the default layout to load on startup
 // Default: "default"
