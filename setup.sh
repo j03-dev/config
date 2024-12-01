@@ -60,8 +60,6 @@ setup_lsp() {
   cargo install cargo-xtask
   cargo xtask install --server
   cd -
-  deno install -g npm:tailwindcss-language-server
-  deno install -g npm:vscode-langservers-extracted
 }
 
 uninstall_all() {
