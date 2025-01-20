@@ -261,6 +261,7 @@ themes {
         black 0 0 0
         white 255 255 255
     }
+
     nord {
         fg "#D8DEE9"
         bg "#2E3440"
@@ -302,12 +303,26 @@ themes {
         white "#cdd6f4"
         orange "#fab387"
     }
+
+    solarized_light {
+        fg "#586e75"
+        bg "#fdf6e3"
+        black "#fdf6e3"
+        red "#dc322f"
+        green "#859900"
+        yellow "#b58900"
+        blue "#268bd2"
+        magenta "#d33682"
+        cyan "#2aa198"
+        white "#073642"
+        orange "#cb4b16"
+    }
 }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "gruvbox_light"
+theme "gruvbox"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -391,3 +406,4 @@ default_layout "compact"
 // Default: false
 //
 // disable_session_metadata true
+

@@ -2,13 +2,23 @@ starship init fish | source
 
 export PATH="/usr/sbin:$PATH"
 
-# Call the function to apply the key bindings
-fish_user_key_bindings
+# Define the function to run your desired command
+function fish_user_key_bindings
+    # Bind Ctrl+f to the command
+    bind \cf 'hx (fzf --preview="bat {}")'
+end
 
-# enable vim mode
+# Call the function to apply the key bindings
 fish_vi_key_bindings
 
-export EDITOR=/usr/bin/vim
+set fish_vi_force_cursor
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_replace underscore
+set fish_cursor_external line
+
+export EDITOR=/home/joe/.cargo/bin/hx
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
@@ -36,8 +46,7 @@ export PATH="$ANDROID_SDK/emulator:$PATH "
 export PATH="$ANDROID_SDK/platform-tools:$PATH"
 export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$NDK_HOME"
 
-export PATH="$ANDROID_HOME/Fdk/bin:$PATH " # flutter 
-export PATH="$PATH:/usr/local/go/bin" # go
+export PATH="$ANDROID_HOME/FlutterSdk/bin:$PATH " # flutter 
 export PATH="$PATH:$HOME/go/bin" # go bin installation
 
 # export tools
@@ -51,5 +60,10 @@ export PATH="$ORACLE_HOME:$PATH"
 
 export DENO_INSTALL="/home/joe/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export PATH="$HOME/.zig:$PATH"
+
+export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
+
 
 . /home/joe/.local/share/ghjk/env.fish # ghjk-hook-default

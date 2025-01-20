@@ -38,6 +38,10 @@ install_deno() {
   curl -fsSL https://deno.land/install.sh | sh
 }
 
+install_node() {
+  dnf install nodejs
+}
+
 install_go() {
   echo "Installing Go..."
   wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
@@ -59,6 +63,10 @@ setup_lsp() {
   git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer
   cargo install cargo-xtask
   cargo xtask install --server
+  sudo npm i -g \
+    @tailwindcss/language-server \
+    vscode-langservers-extracted \
+    typescript typescript-language-server
   cd -
 }
 
@@ -95,6 +103,7 @@ main() {
   install_deno
   install_go
   install_lazygit
+  install_node
   setup_lsp
 }
 

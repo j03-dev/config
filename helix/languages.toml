@@ -1,0 +1,81 @@
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "rust"
+language-servers = ["ra-multiplex"]
+
+[language-server.ra-multiplex]
+name = "ra-multiplex"
+command = "ra-multiplex"
+
+[[language]]
+name = "javascript"
+shebangs = ["node"]
+roots = ["package.json"]
+file-types = ["js"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-serve",
+  "vscode-langservers-extracted",
+]
+auto-format = true
+
+[[language]]
+name = "typescript"
+shebangs = ["node"]
+roots = ["tsconfig.json", "package.json"]
+file-types = ["ts"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-serve",
+  "vscode-langservers-extracted",
+]
+auto-format = true
+
+[[language]]
+name = "jsx"
+shebangs = ["node"]
+roots = ["package.json"]
+file-types = ["jsx"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-serve",
+  "tailwindcss-language-server",
+]
+auto-format = true
+
+[[language]]
+name = "tsx"
+shebangs = ["node"]
+roots = ["tsconfig.json", "package.json"]
+file-types = ["tsx"]
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-serve",
+  "tailwindcss-language-server",
+]
+auto-format = true
+
+[[language]]
+name = "python"
+formatter = { command = "ruff", args = ["format", "-"] }
+auto-format = true
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+environment = { NO_COLOR = "1" }
+
+[language-server.deno-lsp.config.deno]
+enable = true
+suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.land" = true } } }
+
+[language-server.ruff]
+command = "ruff"
+config = { settings = { args = ["server"] } }
