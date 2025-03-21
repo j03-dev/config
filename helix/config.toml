@@ -1,5 +1,5 @@
 # 🎨 Theme configuration
-theme = "gruvbox"
+theme = "github_dark_dimmed"
 
 [editor]
 # 🐭 Enable mouse support
@@ -30,6 +30,11 @@ popup-border = "popup"
 
 end-of-line-diagnostics = "hint"
 
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+auto-signature-help = true
+
 [editor.inline-diagnostics]
 cursor-line = "warning" # show warnings and errors on the cursorline inline
 
@@ -45,13 +50,14 @@ character = "⸽" # Some characters that work well: "▏", "┆", "┊", "⸽"
 
 [editor.statusline]
 # 📝 Statusline configuration
-left = ["mode", "file-name", "spinner", "workspace-diagnostics"]
+left = ["mode", "spinner", "workspace-diagnostics"]
+center = ["file-name"]
 right = ["version-control"]
 
 # 🌌 Customize mode display
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "N"
+mode.insert = "I"
+mode.select = "S"
 
 [editor.gutters]
 # 📊 Gutters configuration
@@ -77,11 +83,13 @@ C-o = ":config-open"
 C-h = "select_prev_sibling"
 C-l = "select_next_sibling"
 
+
 # 📝 Navigation
 H = "goto_previous_buffer"
-J = "goto_next_paragraph"
-K = "goto_prev_paragraph"
 L = "goto_next_buffer"
+
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
 
 # Muscle memory
 C = [
@@ -142,17 +150,22 @@ esc = ["collapse_selection", "keep_primary_selection"]
   "search_prev",
 ]
 
+"%" = "match_brackets"
+
 [keys.normal.C-b]
 F5 = ":run-shell-command dothelix run"
 F9 = ":run-shell-command dothelix build"
 
 [keys.normal.space]
 # 📁 File and view navigation keybindings
-R = "@miw:clipboard-paste-replace<ret>"
 G = "changed_file_picker"
-g = ":sh ~/.config/helix/run-lazygit.sh"
-e = ":sh ~/.config/helix/run-picker.sh"
-t = ":sh ~/.config/helix/run-terminal.sh"
+R = "@miw:clipboard-paste-replace<ret>"
+Y = "@miw:clipboard-yank<ret>"
+g = ":sh ~/.config/helix/scripts/lazygit.sh"
+e = ":sh ~/.config/helix/scripts/yazi.sh"
+t = ":sh ~/.config/helix/scripts/terminal.sh"
+
+
 h = "jump_view_left"
 j = "jump_view_down"
 k = "jump_view_up"
@@ -328,7 +341,9 @@ esc = ["collapse_selection", "normal_mode"]
 # 📝 Navigation and selection
 "{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
 "}" = ["extend_to_line_bounds", "goto_next_paragraph"]
+
 G = "goto_file_end"
+
 k = ["extend_line_up", "extend_to_line_bounds"]
 j = ["extend_line_down", "extend_to_line_bounds"]
 
@@ -368,9 +383,6 @@ p = [
   "delete_selection",
 ]
 P = ["extend_to_line_end", "paste_clipboard_before"]
-
-# 🔄 Matching brackets and moving lines
-"%" = "match_brackets"
 
 K = [
   "yank_main_selection_to_clipboard",

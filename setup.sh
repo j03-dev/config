@@ -55,18 +55,46 @@ install_lazygit() {
   go install github.com/jesseduffield/lazygit@latest
 }
 
+check_command() {
+  if ! command -v $1 &> /dev/null; then
+    echo "$1 not found. Installing..."
+    return 1
+  else
+    echo "$1 is already installed."
+    return 0
+  fi
+}
+
 setup_lsp() {
   echo "Setting up LSPs..."
-  curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  python get-pip.py
-  python -m pip install pyright ruff
-  git clone https://github.com/rust-lang/rust-analyzer.git && cd rust-analyzer
-  cargo install cargo-xtask
-  cargo xtask install --server
+
+  # Check if pip is installed
+  if check_command pip; then
+    python -m pip install -U pyright ruff
+  else
+    curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python get-pip.py
+    python -m pip install -U pyright ruff
+  fi
+
+  # Clone rust-analyzer repository and install rust-analyzer
+  git clone https://github.com/rust-lang/rust-analyzer.git
+  cd rust-analyzer
+
+  # Check if cargo-xtask is installed
+  if check_command cargo-xtask; then
+    cargo xtask install --server
+  else
+    cargo install cargo-xtask
+    cargo xtask install --server
+  fi
+
+  # Install global npm packages
   sudo npm i -g \
     @tailwindcss/language-server \
     vscode-langservers-extracted \
     typescript typescript-language-server
+
   cd -
 }
 
@@ -96,20 +124,72 @@ uninstall_all() {
 }
 
 main() {
-  install_rust
-  install_binstall
-  setup_helix
-  install_yazi
-  install_deno
-  install_go
-  install_lazygit
-  install_node
-  setup_lsp
+  if [ $# -eq 0 ]; then
+    echo "Usage: $0 {install|uninstall|install_rust|install_binstall|setup_helix|install_yazi|install_deno|install_go|install_lazygit|install_node|setup_lsp|all}"
+    exit 1
+  fi
+
+  for arg in "$@"; do
+    case $arg in
+      install)
+        install_rust
+        install_binstall
+        setup_helix
+        install_yazi
+        install_deno
+        install_go
+        install_lazygit
+        install_node
+        setup_lsp
+        ;;
+      uninstall)
+        uninstall_all
+        ;;
+      install_rust)
+        install_rust
+        ;;
+      install_binstall)
+        install_binstall
+        ;;
+      setup_helix)
+        setup_helix
+        ;;
+      install_yazi)
+        install_yazi
+        ;;
+      install_deno)
+        install_deno
+        ;;
+      install_go)
+        install_go
+        ;;
+      install_lazygit)
+        install_lazygit
+        ;;
+      install_node)
+        install_node
+        ;;
+      setup_lsp)
+        setup_lsp
+        ;;
+      all)
+        install_rust
+        install_binstall
+        setup_helix
+        install_yazi
+        install_deno
+        install_go
+        install_lazygit
+        install_node
+        setup_lsp
+        ;;
+      *)
+        echo "Unknown command: $arg"
+        echo "Usage: $0 {install|uninstall|install_rust|install_binstall|setup_helix|install_yazi|install_deno|install_go|install_lazygit|install_node|setup_lsp|all}"
+        ;;
+    esac
+  done
 }
 
-# Check arguments for uninstall
-if [ "$1" == "uninstall" ]; then
-  uninstall_all
-else
-  main
-fi
+# Execute the main function with all arguments
+main "$@"

@@ -10,6 +10,18 @@ language-servers = ["ra-multiplex"]
 name = "ra-multiplex"
 command = "ra-multiplex"
 
+
+[[language]]
+name = "jinja"
+file-types = ["j2"]
+language-servers = ["tailwindcss-ls", "vscode-html-language-server"]
+
+
+[[language]]
+name = "tera"
+file-types = ["tera"]
+language-servers = ["tailwindcss-ls", "vscode-html-language-server"]
+
 [[language]]
 name = "javascript"
 shebangs = ["node"]
@@ -20,7 +32,6 @@ language-servers = [
   "vscode-eslint-language-serve",
   "vscode-langservers-extracted",
 ]
-auto-format = true
 
 [[language]]
 name = "typescript"
@@ -32,7 +43,6 @@ language-servers = [
   "vscode-eslint-language-serve",
   "vscode-langservers-extracted",
 ]
-auto-format = true
 
 [[language]]
 name = "jsx"
@@ -42,9 +52,8 @@ file-types = ["jsx"]
 language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-serve",
-  "tailwindcss-language-server",
+  "tailwindcss-ls",
 ]
-auto-format = true
 
 [[language]]
 name = "tsx"
@@ -54,28 +63,22 @@ file-types = ["tsx"]
 language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-serve",
-  "tailwindcss-language-server",
+  "typescript-language-server",
 ]
-auto-format = true
-
-[[language]]
-name = "python"
-formatter = { command = "ruff", args = ["format", "-"] }
-auto-format = true
 
 [language-server.typescript-language-server]
 command = "typescript-language-server"
 args = ["--stdio"]
 
-[language-server.deno-lsp]
-command = "deno"
-args = ["lsp"]
-environment = { NO_COLOR = "1" }
 
-[language-server.deno-lsp.config.deno]
-enable = true
-suggest = { completeFunctionCalls = false, imports = { hosts = { "https://deno.land" = true } } }
+[[language]]
+name = "python"
+formatter = { command = "ruff", args = ["format", "-"] }
+language-servers = ["pylsp"]
+auto-format = true
 
-[language-server.ruff]
-command = "ruff"
-config = { settings = { args = ["server"] } }
+[language-server.pylsp]
+command = "pylsp"
+
+[language-server.pylsp.config.pylsp.plugins.pycodestyle]
+ignore = ["E501", "W503"]
