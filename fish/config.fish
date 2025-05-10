@@ -37,7 +37,6 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 alias wrkspc="tmuxifier s workspace"
 alias ls="ls -l --color=always"
 
-
 # Android setup
 export ANDROID_HOME="$HOME/Android"
 export ANDROID_SDK="$ANDROID_HOME/Sdk"
@@ -66,8 +65,6 @@ export PATH="$HOME/.zig:$PATH"
 
 export PATH="$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
-
-. /home/joe/.local/share/ghjk/env.fish # ghjk-hook-default
 export PATH="$PATH:$HOME/.config/zide/bin"
 
 fish_add_path /home/joe/.modular/bin

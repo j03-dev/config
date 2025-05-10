@@ -1,5 +1,5 @@
 # 🎨 Theme configuration
-theme = "github_dark_dimmed"
+theme = "default"
 
 [editor]
 # 🐭 Enable mouse support
@@ -31,7 +31,7 @@ popup-border = "popup"
 end-of-line-diagnostics = "hint"
 
 [editor.lsp]
-display-inlay-hints = true
+display-inlay-hints = false
 display-messages = true
 auto-signature-help = true
 
@@ -75,14 +75,17 @@ hidden = false
 
 [keys.normal]
 # 🔧 Normal mode keybindings
-C-x = ":buffer-close!"
-C-k = "copy_selection_on_prev_line"
-C-j = "copy_selection_on_next_line"
 C-A-l = ":format"
-C-o = ":config-open"
+"C-," = ":config-open"
+C-s = ":config-reload"
+C-x = ":buffer-close!"
+
 C-h = "select_prev_sibling"
+C-j = "copy_selection_on_next_line"
+C-k = "copy_selection_on_prev_line"
 C-l = "select_next_sibling"
 
+g.p = "match_brackets"
 
 # 📝 Navigation
 H = "goto_previous_buffer"
@@ -114,6 +117,7 @@ P = [
   "yank_main_selection_to_clipboard",
   "collapse_selection",
   "paste_clipboard_before",
+  "select_mode"
 ]
 Y = [
   "extend_to_line_end",
@@ -150,7 +154,6 @@ esc = ["collapse_selection", "keep_primary_selection"]
   "search_prev",
 ]
 
-"%" = "match_brackets"
 
 [keys.normal.C-b]
 F5 = ":run-shell-command dothelix run"
@@ -164,7 +167,6 @@ Y = "@miw:clipboard-yank<ret>"
 g = ":sh ~/.config/helix/scripts/lazygit.sh"
 e = ":sh ~/.config/helix/scripts/yazi.sh"
 t = ":sh ~/.config/helix/scripts/terminal.sh"
-
 
 h = "jump_view_left"
 j = "jump_view_down"
@@ -398,3 +400,5 @@ J = [
   "paste_clipboard_before",
   "select_mode",
 ]
+
+g.p = "match_brackets"

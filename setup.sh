@@ -17,12 +17,16 @@ install_binstall() {
 
 setup_helix() {
   echo "Setting up Helix editor..."
-  cp ./hx ~/.config/helix -r
+  cp ./helix ~/.config/helix -r
+}
+
+install_helix() {
+  echo "Installing helix..."
   export RUSTFLAGS="-C target-feature=-crt-static"
   mkdir Tools
   cd Tools
-  git clone https://github.com/helix-editor/helix
-  cd helix
+  git clone https://github.com/helix-editor/helix helix-editor
+  cd helix-editor
   cargo install --path helix-term --locked
   ln -Ts $PWD/runtime ~/.config/helix/runtime
   cd ../..
@@ -154,6 +158,8 @@ main() {
       setup_helix)
         setup_helix
         ;;
+      install_helix)
+        ;;
       install_yazi)
         install_yazi
         ;;
@@ -173,19 +179,20 @@ main() {
         setup_lsp
         ;;
       all)
+        install_go
         install_rust
         install_binstall
-        setup_helix
+        install_helix
         install_yazi
         install_deno
-        install_go
         install_lazygit
         install_node
+        setup_helix
         setup_lsp
         ;;
       *)
         echo "Unknown command: $arg"
-        echo "Usage: $0 {install|uninstall|install_rust|install_binstall|setup_helix|install_yazi|install_deno|install_go|install_lazygit|install_node|setup_lsp|all}"
+        echo "Usage: $0 {install|uninstall|install_rust|install_binstall|install_helix|setup_helix|install_yazi|install_deno|install_go|install_lazygit|install_node|setup_lsp|all}"
         ;;
     esac
   done

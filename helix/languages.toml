@@ -10,7 +10,6 @@ language-servers = ["ra-multiplex"]
 name = "ra-multiplex"
 command = "ra-multiplex"
 
-
 [[language]]
 name = "jinja"
 file-types = ["j2"]
