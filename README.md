@@ -1,11 +1,11 @@
 # My dot Config
 
 ```bash
-setup install_<name>
+setup.sh install_<name>
 ```
 
 example
 
 ```bash
-setup install_helix && setup setup_helix
+setup.sh install_helix && setup setup_helix
 ```
